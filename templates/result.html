@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Sorting Hat Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container house {{ house|lower }}">
+  <h1 class="hat-text">🧙 The Sorting Hat has spoken</h1>
+
+  <div class="house-name">
+    {{ house }}
+  </div>
+
+  <p class="house-description">
+    {% if house == "Gryffindor" %}
+      Where dwell the brave at heart. Courage, responsibility and the will to act when others hesitate.
+    {% elif house == "Ravenclaw" %}
+      A mind sharp as a blade. Curiosity, logic and the need to understand before acting.
+    {% elif house == "Hufflepuff" %}
+      Those who value loyalty, fairness and leaving the world better than they found it.
+    {% elif house == "Slytherin" %}
+      Ambition, strategy and the desire to shape outcomes rather than react to them.
+    {% endif %}
+  </p>
+
+</div>
+
+</body>
+</html>
