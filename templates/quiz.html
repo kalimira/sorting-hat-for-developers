@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Sorting Hat for Developers</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+  <h1>🎄 The Sorting Hat for Developers</h1>
+  <p class="subtitle">This hat has seen your Jira history.</p>
+
+  <form method="POST" id="quizForm">
+
+    <div class="question active">
+      <h3>1. Production goes down Friday at 16:47.</h3>
+      <label><input type="radio" name="q1" value="take_responsibility" required> Step in and start working on a solution</label>
+      <label><input type="radio" name="q1" value="deep_analysis"> Pause and investigate the root cause</label>
+      <label><input type="radio" name="q1" value="coordinate_team"> Create an incident ticket and coordinate with the team</label>
+      <label><input type="radio" name="q1" value="strategic_choice"> Evaluate the impact and choose the best move</label>
+      <button type="button" onclick="nextQuestion()">Next</button>
+    </div>
+
+    <div class="question">
+      <h3>2. Jira task: “Small change, shouldn’t take long.”</h3>
+      <label><input type="radio" name="q2" value="check_confluence"> Search Confluence page for context</label>
+      <label><input type="radio" name="q2" value="risk_management"> Plan carefully so it doesn’t backfire</label>
+      <label><input type="radio" name="q2" value="clarify_scope"> Align on what “done” actually means</label>
+      <label><input type="radio" name="q2" value="just_do_it" required> Move it forward and adjust if needed while work</label>
+      <button type="button" onclick="nextQuestion()">Next</button>
+    </div>
+
+    <div class="question">
+      <h3>3. You face undocumented legacy code.</h3>
+      <label><input type="radio" name="q3" value="leave_it_better"> Document it and make the code better than you found it</label>
+      <label><input type="radio" name="q3" value="careful_change" required> Do the "dirty" work - refactor it</label>
+      <label><input type="radio" name="q3" value="use_constraints"> Work within its constraints as they are</label>
+      <label><input type="radio" name="q3" value="full_understanding"> Fully understand it before touching anything</label>
+
+      <button type="button" onclick="nextQuestion()">Next</button>
+    </div>
+
+    <div class="question">
+      <h3>4. You discover an issue in your Atlassian app that won’t surface immediately.</h3>
+      <label><input type="radio" name="q4" value="gain_control"> Think whether to release faster and fix later, or prepare everything before releasing</label>
+      <label><input type="radio" name="q4" value="take_the_hit" required> Stop other things and work on a fix before it becomes bigger problem</label>
+      <label><input type="radio" name="q4" value="future_proof"> Start a fix and tell the team you need a few more days</label>
+      <label><input type="radio" name="q4" value="failure_analysis"> Dig into it until you fully understand how and when it will fail</label>
+
+      <button type="button" onclick="nextQuestion()">Next</button>
+    </div>
+
+    <div class="question">
+      <h3>5. AWS CI/CD pipeline breaks before release.</h3>
+      <label><input type="radio" name="q5" value="prevent_recurrence"> Understand why it broke to prevent repeats and fix it</label>
+      <label><input type="radio" name="q5" value="pipeline_control"> Redesign it for long-term control on the pipelines</label>
+      <label><input type="radio" name="q5" value="fix_and_document"> Create ticket and fix it, then update the documentation</label>
+      <label><input type="radio" name="q5" value="fix_and_ship" required> Start work on quick fix so it can be shipped soon</label>
+      <button type="submit">🎁 Reveal my house</button>
+    </div>
+
+  </form>
+    <div class="footer">
+    🎁 🪄 🎄
+  </div>
+</div>
+
+<script>
+let current = 0;
+const questions = document.querySelectorAll(".question");
+
+function nextQuestion() {
+  const checked = questions[current].querySelector("input:checked");
+  if (!checked) {
+    alert("Choose an answer first.");
+    return;
+  }
+  questions[current].classList.remove("active");
+  current++;
+  questions[current].classList.add("active");
+}
+</script>
+
+</body>
+</html>
