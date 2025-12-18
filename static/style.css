@@ -105,7 +105,7 @@ button:hover {
 }
 
 .ravenclaw {
-  background-color: #0e1a40; /* midnight blue */
+  background-color: #133f8a; /* midnight blue */
 }
 
 .hufflepuff {
@@ -140,5 +140,21 @@ button:hover {
   margin: 0 auto 30px auto;
   filter: drop-shadow(0 0 20px rgba(0,0,0,0.6));
 }
+
+.house-close-call {
+  margin-top: 24px;
+  font-size: 19px;
+  font-style: italic;
+  opacity: 0.85;
+  color: black;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.house-close-call strong {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
 
 
